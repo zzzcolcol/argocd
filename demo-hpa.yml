@@ -16,10 +16,23 @@ spec:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: 70 # 목표 CPU 사용률 (백분율)
+        averageUtilization: 60 # 목표 CPU 사용률 (백분율), 조정된 값
   - type: Resource
     resource:
       name: memory
       target:
         type: Utilization
-        averageUtilization: 80 # 목표 메모리 사용률 (백분율)
+        averageUtilization: 70 # 목표 메모리 사용률 (백분율), 조정된 값
+  behavior: # 스케일링 정책 추가
+    scaleUp:
+      stabilizationWindowSeconds: 300 # 5분 동안 스케일링 결정 보류
+      policies:
+      - type: Percent
+        value: 50 # 1분 동안 최대 50%까지 파드 증가
+        periodSeconds: 60
+    scaleDown:
+      stabilizationWindowSeconds: 300 # 5분 동안 스케일링 축소 결정 보류
+      policies:
+      - type: Percent
+        value: 50 # 1분 동안 최대 50%까지 파드 감소
+        periodSeconds: 60

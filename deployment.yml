@@ -21,6 +21,7 @@ spec:
       containers:
         - name: demo
           image: 120653558546.dkr.ecr.ap-northeast-2.amazonaws.com/zzzcolcol/test:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           resources:
