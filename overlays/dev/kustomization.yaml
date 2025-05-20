@@ -1,7 +1,7 @@
 # overlays/dev/kustomization.yml
 resources:
 - ../../base
-namespace: defalut
+namespace: default
 namePrefix: dev-
 patches:
 - path: patchDeployment.yaml
