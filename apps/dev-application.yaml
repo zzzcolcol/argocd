@@ -3,10 +3,11 @@ kind: Application
 metadata:
   name: demo2-app
   namespace: argocd
-  # annotations:
-  #   argocd-image-updater.argoproj.io/image-list: demo=120653558546.dkr.ecr.ap-northeast-2.amazonaws.com/zzzcolcol/test
-  #   argocd-image-updater.argoproj.io/update-strategy: latest
-  #   argocd-image-updater.argoproj.io/write-back-method: git
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: my-app=120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app
+    argocd-image-updater.argoproj.io/update-strategy: latest
+    argocd-image-updater.argoproj.io/write-back-method: git
+
 spec:
   project: default
   source:

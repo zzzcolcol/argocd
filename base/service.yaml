@@ -1,11 +1,14 @@
-# base/service.yml
 apiVersion: v1
 kind: Service
 metadata:
-  name: api-server
+  name: demo-app
+  labels:
+    app: demo-app
 spec:
+  selector:
+    app: demo-app            # ✅ Deployment의 pod label과 일치
   ports:
-    - name: svc-port
-      port: 8080
-      targetPort: 8080
+    - name: http
+      port: 80               # ✅ Ingress에서 받을 포트 (ALB는 80)
+      targetPort: 8080       # ✅ 실제 container의 port (Spring Boot)
   type: ClusterIP

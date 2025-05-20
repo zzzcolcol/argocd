@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-server
+  name: demo-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api-server
+      app: demo-app
   template:
     metadata:
       labels:
-        app: api-server
+        app: demo-app
     spec:
       containers:
-        - name: api-server
+        - name: demo-app
           image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:latest  # ✅ 수정된 이미지
           ports:
             - containerPort: 8080
