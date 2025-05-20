@@ -5,12 +5,18 @@ metadata:
   name: api-server
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: api-server
   template:
     metadata:
-      name: api-server
+      labels:
+        app: api-server
     spec:
       containers:
         - name: api-server
-          image: nginx:1.14.2
+          image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:latest  # ✅ 수정된 이미지
+          ports:
+            - containerPort: 8080
       imagePullSecrets:
-      - name: dockerhub-secret 
+        - name: my-reg  # ✅ ECR용 Secret 이름으로 수정 (기존 dockerhub-secret → my-reg)
