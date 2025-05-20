@@ -1,0 +1,12 @@
+# overlays/dev/patchDeployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-deployment     # 반드시 base와 동일한 이름으로!
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: demo-container   # base의 container name과 일치해야 함
+          image: nginx:1.14.2    # 원하는 override 이미지
