@@ -1,4 +1,3 @@
-# overlays/dev/patchDeployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -10,3 +9,5 @@ spec:
       containers:
         - name: demo-app   # base의 container name과 일치해야 함
           image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:latest
+      imagePullSecrets:
+        - name: my-reg
