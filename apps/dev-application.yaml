@@ -15,8 +15,7 @@ spec:
     repoURL: https://github.com/zzzcolcol/argocd.git
     targetRevision: HEAD
     path: overlays/dev
-    directory:
-      recurse: true
+    kustomize: {}
   destination:
     server: https://kubernetes.default.svc
     namespace: default
