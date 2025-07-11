@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:latest  # ✅ 수정된 이미지
+          image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:v-3bde762  # ✅ 수정된 이미지
           ports:
             - containerPort: 8080
       imagePullSecrets:
