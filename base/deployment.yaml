@@ -1,4 +1,4 @@
-# base/deployment.yml
+# base/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,8 +15,9 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:latest  # ✅ 수정된 이미지
+          # ✅ 'latest'를 'v-placeholder'로 수정하여 일관성 유지
+          image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:v-placeholder
           ports:
             - containerPort: 8080
       imagePullSecrets:
-        - name: my-reg  # ✅ ECR용 Secret 이름으로 수정 (기존 dockerhub-secret → my-reg)
+        - name: my-reg
