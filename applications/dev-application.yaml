@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-app
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: demo-app=120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app
+    argocd-image-updater.argoproj.io/my-app.update-strategy: semver
+    argocd-image-updater.argoproj.io/my-app.allow-tags: regexp:^v-.*
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: master
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/zzzcolcol/argocd.git
+    targetRevision: HEAD
+    path: overlays/dev
+    kustomize: {}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
