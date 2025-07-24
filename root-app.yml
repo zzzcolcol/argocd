@@ -1,0 +1,29 @@
+# /root-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  # 이 앱이 모든 다른 앱을 관리하는 최상위 앱입니다.
+  name: root-app
+  namespace: argocd
+spec:
+  project: default
+
+  # 소스: 'applications' 디렉터리를 감시합니다.
+  source:
+    repoURL: https://github.com/zzzcolcol/argocd.git
+    targetRevision: HEAD
+    # ✅ 바로 이 부분이 핵심입니다.
+    # 이 Root App은 'applications' 폴더 안의 내용만 배포합니다.
+    path: applications
+
+  # 대상: Root App이 찾은 Application들을 어디에 배포할지 결정합니다.
+  # Application 리소스 자체는 반드시 'argocd' 네임스페이스에 생성되어야 합니다.
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+
+  # 자동 동기화 정책 설정
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

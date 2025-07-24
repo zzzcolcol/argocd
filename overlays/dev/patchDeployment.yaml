@@ -8,6 +8,6 @@ spec:
     spec:
       containers:
         - name: demo-app   # base의 container name과 일치해야 함
-          image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:v-420266f
+          image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:v-ef53e4e
       imagePullSecrets:
         - name: my-reg
