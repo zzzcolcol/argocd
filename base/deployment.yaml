@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: demo-app
-          # ✅ 'latest'를 'v-placeholder'로 수정하여 일관성 유지
-          image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:v-ef53e4e
+
+          image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:v-16c94de
           ports:
             - containerPort: 8080
       imagePullSecrets:
