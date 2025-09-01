@@ -13,3 +13,6 @@ labels:
 - includeSelectors: true
   pairs:
     env: dev
+replicas:
+  - name: dev-demo-app
+    count: 4
