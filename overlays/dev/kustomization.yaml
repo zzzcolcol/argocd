@@ -15,4 +15,4 @@ labels:
     env: dev
 replicas:
   - name: dev-demo-app
-    count: 1
+    count: 10
