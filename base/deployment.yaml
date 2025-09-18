@@ -15,9 +15,18 @@ spec:
     spec:
       containers:
         - name: demo-app
-
           image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:v-1709771
           ports:
             - containerPort: 8080
+          
+          # --- 여기에 resources 추가 ---
+          resources:
+            requests:
+              cpu: "250m"      # 0.25 vCPU
+              memory: "256Mi"  # 256 Mebibytes
+            limits:
+              cpu: "500m"      # 0.5 vCPU
+              memory: "512Mi"  # 512 Mebibytes
+
       imagePullSecrets:
         - name: my-reg
