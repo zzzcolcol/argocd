@@ -1,3 +1,4 @@
 ﻿# terraform2
 
-<img width="1025" height="1190" alt="image" src="https://github.com/user-attachments/assets/385fc2a3-af89-47bb-89fe-48514c4ea14d" />
+
+
