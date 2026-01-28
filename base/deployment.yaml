@@ -13,20 +13,18 @@ spec:
       labels:
         app: demo-app
     spec:
+      serviceAccountName: app-sa  # 이 줄 추가
       containers:
-        - name: demo-app
-          image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:v-ac6fb3d
-          ports:
-            - containerPort: 8080
-          
-          # --- 여기에 resources 추가 ---
-          resources:
-            requests:
-              cpu: "250m"      # 0.25 vCPU
-              memory: "256Mi"  # 256 Mebibytes
-            limits:
-              cpu: "500m"      # 0.5 vCPU
-              memory: "512Mi"  # 512 Mebibytes
-
-      imagePullSecrets:
-        - name: my-reg
+      - name: demo-app
+        image: 120653558546.dkr.ecr.ap-south-1.amazonaws.com/my-app:v-ac6fb3d
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+      # imagePullSecrets:  # 이 두 줄 제거 또는 주석 처리
+      # - name: my-reg
